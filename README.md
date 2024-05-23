@@ -2,9 +2,19 @@
 
 ## 📈 Objetivo 📈
 
+A ideia do projeto é criarmos um gerenciador de atendimento para um hospital em `C`.
+
+Dentro do projeto temos alguns critérios a serem analisados, fora que cada item do menu utiliza alguma parte matéria `Estrutura de Dados`.
+
+São elas:
+- Lista Dinâmica Encadeada;
+- Fila;
+- Árvore Binária de Busca;
+
 ## 👾 Tecnologias Utilizadas 👾
 <div style="display: inline_block"><br>
-  <img align="center" alt="C++" src="https://img.shields.io/badge/C-A8B9CC.svg?style=for-the-badge&logo=C&logoColor=black">  
+  <img align="center" alt="C" src="https://img.shields.io/badge/C-A8B9CC.svg?style=for-the-badge&logo=C&logoColor=black">  
+  <img align="center" alt="Replit" src="https://img.shields.io/badge/Replit-F26207.svg?style=for-the-badge&logo=Replit&logoColor=white">  
 </div>
 
 ## 🖥️ Código 🖥️
