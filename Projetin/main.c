@@ -72,6 +72,7 @@ void inicializarLista(Lista *lista) {
 // ele ajuda na diferenciação de um nome para outro, ou de um rg para o outro.
 void cadastrarPaciente(Lista *lista) {
   Paciente p;
+  printf("\n");
   printf("Nome: ");
   fgets(p.nome, sizeof(p.nome), stdin);
   p.nome[strcspn(p.nome, "\n")] = '\0';
@@ -105,6 +106,7 @@ void cadastrarPaciente(Lista *lista) {
 // encontrado o paciente procurado!
 void consultarPaciente(Lista *lista) {
   char rg[10];
+  printf("\n");
   printf("Digite o RG do paciente que deseja consultar: ");
   fgets(rg, sizeof(rg), stdin);
   rg[strcspn(rg, "\n")] = '\0';
@@ -113,6 +115,7 @@ void consultarPaciente(Lista *lista) {
   while (atual != NULL) {
     if (strcmp(atual->dados.rg, rg) == 0) { //É aqui que ocorre a comparação do
                                             // RG inputado para o RG armazenado.
+      printf("\n");
       printf("Paciente encontrado:\n");
       printf("Nome: %s\n", atual->dados.nome);
       printf("Idade: %d\n", atual->dados.idade);
@@ -138,6 +141,7 @@ void exibirPacientes(Lista *lista) {
   ELista *atual = lista->inicio; //É aqui que a lista é percorrida
   while (atual !=
          NULL) { // Percorrendo a lista e imprimindo os dados dos pacientes
+    printf("\n");
     printf("Nome: %s\n", atual->dados.nome);
     printf("Idade: %d\n", atual->dados.idade);
     printf("RG: %s\n", atual->dados.rg);
@@ -152,6 +156,7 @@ void exibirPacientes(Lista *lista) {
 // encontrado pelo RG.
 void atualizarPaciente(Lista *lista) {
   char rg[10];
+  printf("\n");
   printf("Digite o RG do paciente que deseja atualizar: ");
   fgets(rg, sizeof(rg), stdin);
   rg[strcspn(rg, "\n")] = '\0';
@@ -159,6 +164,7 @@ void atualizarPaciente(Lista *lista) {
   ELista *atual = lista->inicio;
   while (atual != NULL) {
     if (strcmp(atual->dados.rg, rg) == 0) {
+      printf("\n");
       printf("Atualizando dados do paciente %s:\n", atual->dados.nome);
       printf("Nova Idade: ");
       scanf("%d", &atual->dados.idade);
@@ -180,6 +186,7 @@ void atualizarPaciente(Lista *lista) {
 // que o RG do paciente a ser excluído seja fornecido.
 void removerPaciente(Lista *lista) {
   char rg[10];
+  printf("\n");
   printf("Digite o RG do paciente que deseja remover: ");
   fgets(rg, sizeof(rg), stdin);
   rg[strcspn(rg, "\n")] = '\0';
@@ -269,6 +276,7 @@ void mostrarFila(Fila *fila) {
 
   EFila *atual = fila->head;
   while (atual != NULL) {
+    printf("\n");
     printf("Nome: %s\n", atual->dados.nome);
     printf("Idade: %d\n", atual->dados.idade);
     printf("RG: %s\n", atual->dados.rg);
@@ -339,6 +347,7 @@ EABB *inserirPacienteABB(EABB *raiz, Paciente paciente, int criterio) {
 void mostrarEmOrdem(EABB *raiz) {
   if (raiz != NULL) {
     mostrarEmOrdem(raiz->filhoEsq);
+    printf("\n");
     printf("Nome: %s\n", raiz->dados.nome);
     printf("Idade: %d\n", raiz->dados.idade);
     printf("RG: %s\n", raiz->dados.rg);
@@ -415,6 +424,7 @@ void carregarDados(Lista *lista) {
   while (!feof(arquivo)) {
     Paciente p;
     // Aqui temos a leitura dos dados do paciente, que estam no arquivo.
+    printf("\n");
     fscanf(arquivo, "%[^,],%d,%[^,],%d/%d/%d\n", p.nome, &p.idade, p.rg,
            &p.entrada.dia, &p.entrada.mes, &p.entrada.ano);
 
@@ -446,6 +456,7 @@ void salvarDados(Lista *lista) {
   ELista *atual = lista->inicio;
   while (atual != NULL) {
     // Escreve os dados dos pacientes no arquivo num formato preparado
+    printf("\n");
     fprintf(arquivo, "%s,%d,%s,%02d/%02d/%04d\n", atual->dados.nome,
             atual->dados.idade, atual->dados.rg, atual->dados.entrada.dia,
             atual->dados.entrada.mes, atual->dados.entrada.ano);
@@ -457,18 +468,22 @@ void salvarDados(Lista *lista) {
 }
 
 // Função para exibir os dados sobre os alunos que criaram o código.
-void exibirInformacoesAlunos(Lista *lista) {
-  printf("Nome: Anna Carolina R. P. Zomer\n");
+void exibirInformacoesAlunos() {
+  printf("\n");
+  printf("PROJETO DESENVOLVIDO POR:\n");
+  printf("--------------------------------\n");
+  printf("Aluno: Anna Carolina R. P. Zomer\n");
   printf("Ciclo: 4º Semestre\n");
-  printf("Curso: Ciência da Compuação\n");
-  printf("Diciplina: Estrutura de Dados\n");
+  printf("Curso: Ciência da Computação\n");
+  printf("Disciplina: Estrutura de Dados\n");
   printf("Data: 24/05/2024\n");
-  printf("----------------------\n");
-  printf("Nome: Humberto de O. Pellegrini\n");
+  printf("--------------------------------\n");
+  printf("Aluno: Humberto de O. Pellegrini\n");
   printf("Ciclo: 4º Semestre\n");
-  printf("Curso: Ciência da Compuação\n");
-  printf("Diciplina: Estrutura de Dados\n");
+  printf("Curso: Ciência da Computação\n");
+  printf("Disciplina: Estrutura de Dados\n");
   printf("Data: 24/05/2024\n");
+  printf("--------------------------------\n");
 }
 
 //***MENUS***
