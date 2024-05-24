@@ -720,6 +720,136 @@ int main() {
 
 ## 🍃 Detalhes do Projeto 🍃
 
+### 📍MENU PRINCIPAL
+- No `Menu Principal` temos as opções a serem escolhidas:
+
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/MENU_PRINCIPAL.png" />
+
+### 📍MENU CADASTRAR
+- Assim que entramos na opção `Cadastro` temos as seguintes opções:
+
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/MENU_CADASTRO.png" />
+
+#### CADASTRAR ⬇️
+- Cadastramos um novo paciente. - `Opção 01`
+ 
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/CADASTRAR_PACIENTE.png" />
+
+#### CONSULTAR ⬇️
+- Consultamos um paciente pelo número de RG. - `Opção 02`
+
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/CONSULTAR_PACIENTE.png" />
+
+#### MOSTRAR ⬇️
+- Mostramos todos os pacientes cadastrados. - `Opção 03`
+
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/MOSTRAR_PACIENTES.png" />
+
+#### ATUALIZAR ⬇️
+- Atualizamos os dados `Idade` e `Data de Entrada` do paciente que foi localizado pelo número de RG. - `Opção 04`
+
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/ATUALIZAR_PACIENTE.png" />
+
+  - Assim que fica o `Antes x Depois` do arquivo de salvamento dos pacientes:
+  <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh;">
+      <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/SALVOS_ANTES.png" style="margin-right: 10px;" />
+      <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/SALVOS_DEPOIS.png" style="margin-left: 10px;" />
+  </div>
+
+#### REMOVER ⬇️
+- Atualizamos os dados `Idade` e `Data de Entrada` do paciente que foi localizado pelo número de RG. - `Opção 05`
+
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/REMOVER_PACIENTE.png" />
+
+  - Assim que fica o `Antes x Depois` do arquivo de salvamento dos pacientes:
+  <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh;">
+      <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/ANTES_SALVAR_REMOVER.png" style="margin-right: 10px;" />
+      <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/DEPOIS_SALVAR_REMOVER.png" style="margin-left: 10px;" />
+  </div>
+
+### 📍MENU ATENDIMENTO
+- Assim que entramos na opção `Atendimento` temos as seguintes opções:
+
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/MENU_ATENDIMENTO.png" />
+
+#### ENFILEIRAR ⬇️
+- Os pacientes são enfileirados por ordem de urgência, ou seja, o 1º fica no topo e por ai vai indo. - `Opção 01` 
+ 
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/ENFILEIRAR.png" />
+
+- Os enfileiramentos são mostrados dessa maneira na `Opção 03`: 
+  <p align = "middle">
+  <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/MOSTRAR_ENFILEIRAR.png" />
+
+#### DESENFILEIRAR ⬇️
+- Os pacientes são `desenfileirados` por ordem também, ou seja, do 1º ao último. - `Opção 02`
+
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/DESENFILEIRAR.png" />
+
+- Os desenfileiramentos são mostrados dessa maneira na `Opção 03` (a primeira saiu da lista): 
+  <p align = "middle">
+  <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/MOSTRAR_DESENFILEIRAR.png" />
+
+### 📍MENU PESQUISA
+- Assim que entramos na opção `Pesquisa` temos as seguintes opções:
+
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/MENU_PESQUISAR.png" />
+
+#### ANO ⬇️
+- Assim que escolhemos a `Opção 01`, os pacientes são mostrados em ordem crescente pelos anos, ou seja, do menor ano ao maior.
+ 
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/PESQUISA_ANO.png" />
+
+#### MÊS ⬇️
+- Assim que escolhemos a `Opção 02`, os pacientes são mostrados em ordem crescente pelos meses, ou seja, do menor mês ao maior.
+ 
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/PESQUISA_MES.png" />
+
+#### DIA ⬇️
+- Assim que escolhemos a `Opção 03`, os pacientes são mostrados em ordem crescente pelos dias, ou seja, do menor dia ao maior.
+ 
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/PESQUISA_DIA.png" />
+
+#### IDADE ⬇️
+- Assim que escolhemos a `Opção 04`, os pacientes são mostrados em ordem crescente pelas idades, ou seja, da menor idade para a maior.
+ 
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/PESQUISA_IDADE.png" />
+
+### 📍MENU CARREGAR/SALVAR
+- Assim que entramos na opção `Caregar/Salvar` temos as seguintes opções:
+
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/MENU_CARREGAR.png" />
+
+⚠️ **IMPORTANTE:** Fazer a `Opção 01` assim que iniciar o código.
+
+#### CARREGAR ⬇️
+- A `Opção 01` serve para carregar o arquivo txt, que possui pacientes cadastrados, para que, ao cadastrar um paciente novo, não se percam os dados dos anteriores, e para que o código, principalmente as opções de pesquisa, atendimento e consulta, funcionem perfeitamente.
+ 
+
+#### SALVAR ⬇️
+- A `Opção 02` serve para salvar os pacientes novos e todas as atualizações que foram feitas nos cadastros. 
+ 
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/SALVAR.png" />
+
+### 📍MENU SOBRE
+- Assim que entramos na opção `Sobre os Alunos` é mostrado as informações dos alunos que desenvolveram o código:
 
 
 ## 🧑🏻‍💻 Autores do Projeto 🧑🏻‍💻
