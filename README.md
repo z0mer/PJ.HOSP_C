@@ -776,9 +776,9 @@ int main() {
 <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/ATUALIZAR_PACIENTE.png" />
 
   - Assim que fica o `Antes x Depois` do arquivo de salvamento dos pacientes:
-  <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh;">
-      <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/SALVOS_ANTES.png" style="margin-right: 10px;" />
-      <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/SALVOS_DEPOIS.png" style="margin-left: 10px;" />
+  <div style="display: flex; justify-content: center; align-items: center; max-width: 50px;">
+      <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/SALVOS_ANTES.png" style="margin-right: 5px;" />
+      <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/SALVOS_DEPOIS.png" style="margin-left: 5px;" />
   </div>
 
 #### REMOVER ⬇️
@@ -788,7 +788,7 @@ int main() {
 <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/REMOVER_PACIENTE.png" />
 
   - Assim que fica o `Antes x Depois` do arquivo de salvamento dos pacientes:
-  <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh;">
+  <div style="display: flex; justify-content: center; align-items: center; max-width: 50px;">
       <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/ANTES_SALVAR_REMOVER.png" style="margin-right: 10px;" />
       <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/DEPOIS_SALVAR_REMOVER.png" style="margin-left: 10px;" />
   </div>
