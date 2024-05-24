@@ -1,15 +1,16 @@
 ![Header](https://capsule-render.vercel.app/api?type=waving&height=121&color=A9A9A9&text=🚑%20Gerenciador%20de%20atendimento%20médico%20🚑&fontSize=35&fontColor=D3D3D3&section=header&fontAlignY=65)
 
 <p align="center">
-  <a href="#-objetivo-">Objetivo</a> |
-  <a href="#-tecnologias-utilizadas-">Tecnologias Utilizadas</a> |
+  <a href="#-objetivo-">✨ Objetivo</a> |
+  <a href="#-tecnologias-utilizadas-">Tecnologias</a> |
   <a href="#%EF%B8%8F-código-%EF%B8%8F">Código</a> |
-  <a href="#-autores-do-projeto-">Autores</a>
+  <a href="#-detalhes-do-projeto-">Detalhes</a> |
+  <a href="#-autores-do-projeto-">Autores ✨</a>
 </p>
 
 ## 📈 Objetivo 📈
 
-A ideia do projeto é criarmos um gerenciador de atendimento para um hospital em `C`.
+A ideia do projeto é criarmos um gerenciador de atendimento para um `hospital em C`.
 
 Dentro do projeto temos alguns critérios a serem analisados, fora que cada item do menu utiliza alguma parte matéria `Estrutura de Dados`.
 
@@ -19,10 +20,11 @@ São elas:
 - Árvore Binária de Busca;
 
 ## 👾 Tecnologias Utilizadas 👾
-<div style="display: inline_block"><br>
+<div style="display: inline_block" ><br>
   <img align="center" alt="C" src="https://img.shields.io/badge/C-A8B9CC.svg?style=for-the-badge&logo=C&logoColor=black">  
   <img align="center" alt="Replit" src="https://img.shields.io/badge/Replit-F26207.svg?style=for-the-badge&logo=Replit&logoColor=white">  
 </div>
+<br>
 
 ## 🖥️ Código 🖥️
 
@@ -849,8 +851,10 @@ int main() {
 <img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/SALVAR.png" />
 
 ### 📍MENU SOBRE
-- Assim que entramos na opção `Sobre os Alunos` é mostrado as informações dos alunos que desenvolveram o código:
+- Por fim, ao entrarmos na opção `Sobre os Alunos`, é mostrado as informações dos alunos que desenvolveram o código:
 
+<p align = "middle">
+<img src="https://github.com/z0mer/PJ.HOSP_C/blob/main/img/SOBRE.png" />
 
 ## 🧑🏻‍💻 Autores do Projeto 🧑🏻‍💻
 
@@ -860,4 +864,4 @@ int main() {
 #### Humberto Pellegrini ⬇️
 [![E-mail](https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/Humbertin07)
 
-![Footer](https://capsule-render.vercel.app/api?type=waving&height=121&color=A9A9A9&text=👋🏻%20Até%20a%20próxima!!%20👋🏻&fontSize=35&fontColor=D3D3D3&section=footer&fontAlignY=45)
+![Footer](https://capsule-render.vercel.app/api?type=waving&height=121&color=A9A9A9&text=👋🏻%20Esperamos%20que%20tenham%20gostado!%20👋🏻&fontSize=35&fontColor=D3D3D3&section=footer&fontAlignY=45)
