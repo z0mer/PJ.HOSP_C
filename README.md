@@ -71,16 +71,16 @@ typedef struct {
   int qtde;
 } Fila;
 
-typedef struct EABB {
+typedef struct EArvore {
   Paciente dados;
-  struct EABB *filhoEsq;
-  struct EABB *filhoDir;
-} EABB;
+  struct EArvore *filhoEsq;
+  struct EArvore *filhoDir;
+} EArvore;
 
 typedef struct {
-  EABB *raiz;
+  EArvore *raiz;
   int qtde;
-} ABB;
+} Arvore;
 
 //***CADASTRO***
 //***CADASTRO***
@@ -107,6 +107,7 @@ void inicializarLista(Lista *lista) {
 // ele ajuda na diferenciação de um nome para outro, ou de um rg para o outro.
 void cadastrarPaciente(Lista *lista) {
   Paciente p;
+  printf("\n");
   printf("Nome: ");
   fgets(p.nome, sizeof(p.nome), stdin);
   p.nome[strcspn(p.nome, "\n")] = '\0';
@@ -140,6 +141,7 @@ void cadastrarPaciente(Lista *lista) {
 // encontrado o paciente procurado!
 void consultarPaciente(Lista *lista) {
   char rg[10];
+  printf("\n");
   printf("Digite o RG do paciente que deseja consultar: ");
   fgets(rg, sizeof(rg), stdin);
   rg[strcspn(rg, "\n")] = '\0';
@@ -148,6 +150,7 @@ void consultarPaciente(Lista *lista) {
   while (atual != NULL) {
     if (strcmp(atual->dados.rg, rg) == 0) { //É aqui que ocorre a comparação do
                                             // RG inputado para o RG armazenado.
+      printf("\n");
       printf("Paciente encontrado:\n");
       printf("Nome: %s\n", atual->dados.nome);
       printf("Idade: %d\n", atual->dados.idade);
@@ -173,6 +176,7 @@ void exibirPacientes(Lista *lista) {
   ELista *atual = lista->inicio; //É aqui que a lista é percorrida
   while (atual !=
          NULL) { // Percorrendo a lista e imprimindo os dados dos pacientes
+    printf("\n");
     printf("Nome: %s\n", atual->dados.nome);
     printf("Idade: %d\n", atual->dados.idade);
     printf("RG: %s\n", atual->dados.rg);
@@ -187,6 +191,7 @@ void exibirPacientes(Lista *lista) {
 // encontrado pelo RG.
 void atualizarPaciente(Lista *lista) {
   char rg[10];
+  printf("\n");
   printf("Digite o RG do paciente que deseja atualizar: ");
   fgets(rg, sizeof(rg), stdin);
   rg[strcspn(rg, "\n")] = '\0';
@@ -194,6 +199,7 @@ void atualizarPaciente(Lista *lista) {
   ELista *atual = lista->inicio;
   while (atual != NULL) {
     if (strcmp(atual->dados.rg, rg) == 0) {
+      printf("\n");
       printf("Atualizando dados do paciente %s:\n", atual->dados.nome);
       printf("Nova Idade: ");
       scanf("%d", &atual->dados.idade);
@@ -215,6 +221,7 @@ void atualizarPaciente(Lista *lista) {
 // que o RG do paciente a ser excluído seja fornecido.
 void removerPaciente(Lista *lista) {
   char rg[10];
+  printf("\n");
   printf("Digite o RG do paciente que deseja remover: ");
   fgets(rg, sizeof(rg), stdin);
   rg[strcspn(rg, "\n")] = '\0';
@@ -256,7 +263,7 @@ void inicializarFila(Fila *fila) {
 }
 
 // Nessa funçao enfileiramos os nossos pacientes na fila.
-void enfileirarPaciente(Fila *fila, Paciente paciente) {
+void enqueue(Fila *fila, Paciente paciente) {
   EFila *novo = (EFila *)malloc(sizeof(EFila));
   if (novo == NULL) {
     printf("Erro ao alocar memória.\n");
@@ -278,7 +285,7 @@ void enfileirarPaciente(Fila *fila, Paciente paciente) {
 
 // Nessa funçao desenfileiramos os pacientes da fila. Só que da maneira correta,
 // sempre pelo primeiro da fila.
-void desenfileirarPaciente(Fila *fila) {
+void dequeue(Fila *fila) {
   if (fila->head == NULL) {
     printf("Fila vazia.\n");
     return;
@@ -296,7 +303,7 @@ void desenfileirarPaciente(Fila *fila) {
 }
 
 // Essa função nos mostra a atual situação da fila, ou seja, sua ordem.
-void mostrarFila(Fila *fila) {
+void mostrarQueue(Fila *fila) {
   if (fila->head == NULL) {
     printf("Fila vazia.\n");
     return;
@@ -304,6 +311,7 @@ void mostrarFila(Fila *fila) {
 
   EFila *atual = fila->head;
   while (atual != NULL) {
+    printf("\n");
     printf("Nome: %s\n", atual->dados.nome);
     printf("Idade: %d\n", atual->dados.idade);
     printf("RG: %s\n", atual->dados.rg);
@@ -325,12 +333,13 @@ void mostrarFila(Fila *fila) {
 // máximo dois filhos: um filho à esquerda e outro à direita.
 
 // Aqui nós começamos a falar sobre a parte que foi mais "pegada" para nós dois.
-// Essa função insere um paciente na árvore binária de busca.
-EABB *inserirPacienteABB(EABB *raiz, Paciente paciente, int criterio) {
+// Essa função insere um paciente na árvore binária de busca, mas alterando
+// diretamente os nós da árvore
+EArvore *inserirPaciente(EArvore *raiz, Paciente paciente, int criterio) {
   // Se a raiz for igual a NULL, significa que a árvore está vazia. E assim
   // criamos um nó.
   if (raiz == NULL) {
-    EABB *novo = (EABB *)malloc(sizeof(EABB));
+    EArvore *novo = (EArvore *)malloc(sizeof(EArvore));
     if (novo == NULL) {
       printf("Erro ao alocar memória.\n");
       return NULL;
@@ -346,24 +355,24 @@ EABB *inserirPacienteABB(EABB *raiz, Paciente paciente, int criterio) {
 
   if (criterio == 1) { // Ano de registro
     if (paciente.entrada.ano < raiz->dados.entrada.ano)
-      raiz->filhoEsq = inserirPacienteABB(raiz->filhoEsq, paciente, criterio);
+      raiz->filhoEsq = inserirPaciente(raiz->filhoEsq, paciente, criterio);
     else
-      raiz->filhoDir = inserirPacienteABB(raiz->filhoDir, paciente, criterio);
+      raiz->filhoDir = inserirPaciente(raiz->filhoDir, paciente, criterio);
   } else if (criterio == 2) { // Mês de registro
     if (paciente.entrada.mes < raiz->dados.entrada.mes)
-      raiz->filhoEsq = inserirPacienteABB(raiz->filhoEsq, paciente, criterio);
+      raiz->filhoEsq = inserirPaciente(raiz->filhoEsq, paciente, criterio);
     else
-      raiz->filhoDir = inserirPacienteABB(raiz->filhoDir, paciente, criterio);
+      raiz->filhoDir = inserirPaciente(raiz->filhoDir, paciente, criterio);
   } else if (criterio == 3) { // Dia de registro
     if (paciente.entrada.dia < raiz->dados.entrada.dia)
-      raiz->filhoEsq = inserirPacienteABB(raiz->filhoEsq, paciente, criterio);
+      raiz->filhoEsq = inserirPaciente(raiz->filhoEsq, paciente, criterio);
     else
-      raiz->filhoDir = inserirPacienteABB(raiz->filhoDir, paciente, criterio);
+      raiz->filhoDir = inserirPaciente(raiz->filhoDir, paciente, criterio);
   } else if (criterio == 4) { // Idade
     if (paciente.idade < raiz->dados.idade)
-      raiz->filhoEsq = inserirPacienteABB(raiz->filhoEsq, paciente, criterio);
+      raiz->filhoEsq = inserirPaciente(raiz->filhoEsq, paciente, criterio);
     else
-      raiz->filhoDir = inserirPacienteABB(raiz->filhoDir, paciente, criterio);
+      raiz->filhoDir = inserirPaciente(raiz->filhoDir, paciente, criterio);
   }
 
   return raiz;
@@ -371,37 +380,39 @@ EABB *inserirPacienteABB(EABB *raiz, Paciente paciente, int criterio) {
 
 // Essa funçao serve para mostrar os pacientes, numa sequência de acordo com o
 // critério que for escolhido.
-void mostrarEmOrdem(EABB *raiz) {
+void in_ordem(EArvore *raiz) {
   if (raiz != NULL) {
-    mostrarEmOrdem(raiz->filhoEsq);
+    in_ordem(raiz->filhoEsq);
+    printf("\n");
     printf("Nome: %s\n", raiz->dados.nome);
     printf("Idade: %d\n", raiz->dados.idade);
     printf("RG: %s\n", raiz->dados.rg);
     printf("Data de Entrada: %02d/%02d/%04d\n", raiz->dados.entrada.dia,
            raiz->dados.entrada.mes, raiz->dados.entrada.ano);
     printf("--------------------\n");
-    mostrarEmOrdem(raiz->filhoDir);
+    in_ordem(raiz->filhoDir);
   }
 }
 
 // Essa funçao inicializa a árvore binária de busca.
-void inicializarABB(ABB *abb) {
-  abb->raiz = NULL;
-  abb->qtde = 0;
+void inicializarArvore(Arvore *arvore) {
+  arvore->raiz = NULL;
+  arvore->qtde = 0;
 }
 
-// Essa função serve para inserir um paciente na árvore binária de busca.
-void inserirPacienteABBWrapper(ABB *abb, Paciente paciente, int criterio) {
-  abb->raiz = inserirPacienteABB(abb->raiz, paciente, criterio);
-  abb->qtde++;
+// Essa função serve para inserir um paciente na árvore binária de busca, mas
+// mexendo com sua estrutura, ou seja, raiz e o contador de elementos
+void inserirPacienteEstrutura(Arvore *arvore, Paciente paciente, int criterio) {
+  arvore->raiz = inserirPaciente(arvore->raiz, paciente, criterio);
+  arvore->qtde++;
 }
 
-// Essa função serve para construir ua ABB a partir de uma lista de pacientes.
-void construirABB(ABB *abb, Lista *lista, int criterio) {
-  inicializarABB(abb);
+// Essa função serve para construir uma ABB a partir de uma lista de pacientes.
+void construirArvore(Arvore *arvore, Lista *lista, int criterio) {
+  inicializarArvore(arvore);
   ELista *atual = lista->inicio;
   while (atual != NULL) {
-    inserirPacienteABBWrapper(abb, atual->dados, criterio);
+    inserirPacienteEstrutura(arvore, atual->dados, criterio);
     atual = atual->proximo;
   }
 }
@@ -409,27 +420,27 @@ void construirABB(ABB *abb, Lista *lista, int criterio) {
 // Aqui temos as funçoes que mostram os registros relacionados à algum critério
 // sendo eles Ano, Mês, Dia e Idade.
 void mostrarRegistrosPorAno(Lista *lista) {
-  ABB abb;
-  construirABB(&abb, lista, 1);
-  mostrarEmOrdem(abb.raiz);
+  Arvore arvore;
+  construirArvore(&arvore, lista, 1);
+  in_ordem(arvore.raiz);
 }
 
 void mostrarRegistrosPorMes(Lista *lista) {
-  ABB abb;
-  construirABB(&abb, lista, 2);
-  mostrarEmOrdem(abb.raiz);
+  Arvore arvore;
+  construirArvore(&arvore, lista, 2);
+  in_ordem(arvore.raiz);
 }
 
 void mostrarRegistrosPorDia(Lista *lista) {
-  ABB abb;
-  construirABB(&abb, lista, 3);
-  mostrarEmOrdem(abb.raiz);
+  Arvore arvore;
+  construirArvore(&arvore, lista, 3);
+  in_ordem(arvore.raiz);
 }
 
 void mostrarRegistrosPorIdade(Lista *lista) {
-  ABB abb;
-  construirABB(&abb, lista, 4);
-  mostrarEmOrdem(abb.raiz);
+  Arvore arvore;
+  construirArvore(&arvore, lista, 4);
+  in_ordem(arvore.raiz);
 }
 
 //***CARREGAR/SALVAR***
@@ -450,6 +461,7 @@ void carregarDados(Lista *lista) {
   while (!feof(arquivo)) {
     Paciente p;
     // Aqui temos a leitura dos dados do paciente, que estam no arquivo.
+    printf("\n");
     fscanf(arquivo, "%[^,],%d,%[^,],%d/%d/%d\n", p.nome, &p.idade, p.rg,
            &p.entrada.dia, &p.entrada.mes, &p.entrada.ano);
 
@@ -481,6 +493,7 @@ void salvarDados(Lista *lista) {
   ELista *atual = lista->inicio;
   while (atual != NULL) {
     // Escreve os dados dos pacientes no arquivo num formato preparado
+    printf("\n");
     fprintf(arquivo, "%s,%d,%s,%02d/%02d/%04d\n", atual->dados.nome,
             atual->dados.idade, atual->dados.rg, atual->dados.entrada.dia,
             atual->dados.entrada.mes, atual->dados.entrada.ano);
@@ -492,18 +505,22 @@ void salvarDados(Lista *lista) {
 }
 
 // Função para exibir os dados sobre os alunos que criaram o código.
-void exibirInformacoesAlunos(Lista *lista) {
-  printf("Nome: Anna Carolina R. P. Zomer\n");
+void exibirInformacoesAlunos() {
+  printf("\n");
+  printf("PROJETO DESENVOLVIDO POR:\n");
+  printf("--------------------------------\n");
+  printf("Aluno: Anna Carolina R. P. Zomer\n");
   printf("Ciclo: 4º Semestre\n");
-  printf("Curso: Ciência da Compuação\n");
-  printf("Diciplina: Estrutura de Dados\n");
+  printf("Curso: Ciência da Computação\n");
+  printf("Disciplina: Estrutura de Dados\n");
   printf("Data: 24/05/2024\n");
-  printf("----------------------\n");
-  printf("Nome: Humberto de O. Pellegrini\n");
+  printf("--------------------------------\n");
+  printf("Aluno: Humberto de O. Pellegrini\n");
   printf("Ciclo: 4º Semestre\n");
-  printf("Curso: Ciência da Compuação\n");
-  printf("Diciplina: Estrutura de Dados\n");
+  printf("Curso: Ciência da Computação\n");
+  printf("Disciplina: Estrutura de Dados\n");
   printf("Data: 24/05/2024\n");
+  printf("--------------------------------\n");
 }
 
 //***MENUS***
@@ -577,7 +594,7 @@ void menuAtendimento(Fila *fila, Lista *lista) {
       ELista *atual = lista->inicio;
       while (atual != NULL) {
         if (strcmp(atual->dados.rg, rg) == 0) {
-          enfileirarPaciente(fila, atual->dados);
+          enqueue(fila, atual->dados);
           break;
         }
         atual = atual->proximo;
@@ -588,10 +605,10 @@ void menuAtendimento(Fila *fila, Lista *lista) {
       break;
     }
     case 2:
-      desenfileirarPaciente(fila);
+      dequeue(fila);
       break;
     case 3:
-      mostrarFila(fila);
+      mostrarQueue(fila);
       break;
     case 0:
       printf("Voltando ao menu principal...\n");
