@@ -718,6 +718,10 @@ int main() {
 ```
 </details>
 
+## 🍃 Detalhes do Projeto 🍃
+
+
+
 ## 🧑🏻‍💻 Autores do Projeto 🧑🏻‍💻
 
 #### Anna Carolina Zomer ⬇️
